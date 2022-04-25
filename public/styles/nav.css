@@ -1,0 +1,26 @@
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.5em;
+  width: 100vw;
+  height: 120px;
+  background-color: var(--background-color);
+  color: var(--font-color);
+  z-index: 1;
+}
+
+.logo {
+  font-family: var(--logo-font);
+}
+
+.call-to-action-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.fa-angles-down {
+  color: red;
+}
+

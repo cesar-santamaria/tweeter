@@ -1,0 +1,24 @@
+.new-tweet textarea {
+  border: none;
+  border-bottom: 0.2em solid;
+  background-color: transparent;
+  resize: none;
+  outline: none;
+  font-family: var(--primary-font);
+  font-weight: 600;
+  width: 100%;
+}
+
+.new-tweet button {
+  color: var(--font-color);
+  background-color: var(--background-color);
+  border: none;
+  padding: 0.3em;
+}
+
+.tweet-button-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--logo-font);
+}

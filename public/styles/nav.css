@@ -7,7 +7,11 @@ nav {
   height: 120px;
   background-color: var(--background-color);
   color: var(--font-color);
+  position: sticky;
+  top:0;
+  left:0;
   z-index: 1;
+  overflow: hidden;
 }
 
 .logo {

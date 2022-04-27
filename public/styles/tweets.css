@@ -1,42 +1,47 @@
-.tweets-container {
+#tweets-container {
+  margin: 5rem 0;
+  padding: 1rem;
+}
+
+#tweets-container article {
   margin: 5rem 0;
   border: 5px solid var(--accent-color);
   padding: 1rem;
 }
 
-.tweets-container header {
+#tweets-container header {
   padding: 0 1rem;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 
-.tweets-container .user-info {
+#tweets-container .user-info {
   display: flex;
   flex-direction: row;
   align-items: center;
 }
 
-.tweets-container .user-info i {
+#tweets-container .user-info i {
   font-size: 60px;
   margin-right: 1.5rem;
 }
 
-.tweets-container header h3.name , p {
+#tweets-container header h3.name , p {
   font-weight: bold;
 }
 
-.tweets-container header h3.user {
+#tweets-container header h3.user {
   color: #888477;
 }
 
-.tweets-container .users-tweet {
+#tweets-container .user-tweet {
   padding: 0 1rem;
   border-bottom: 5px solid var(--accent-color);
 }
 
 
-.tweets-container footer {
+#tweets-container footer {
   display: flex;
   justify-content: space-between;
   font-size: 20px;
@@ -49,7 +54,7 @@
 
 /* Element active states */
 
-.tweets-container:hover {
+#tweets-container article:hover {
   box-shadow: 12px 12px 2px 1px #d5d4d0;
 }
 

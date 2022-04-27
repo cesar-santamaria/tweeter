@@ -11,7 +11,7 @@
 
 .new-tweet button {
   color: var(--font-color);
-  background-color: var(--background-color);
+  background-color: var(--secondary-color);
   border: none;
   padding: 0.3em;
 }
@@ -23,6 +23,7 @@
   font-family: var(--logo-font);
 }
 
+/* Class for when character count has exceeded max */
 .over-count {
   color: red;
 }

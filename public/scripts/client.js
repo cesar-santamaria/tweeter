@@ -23,18 +23,29 @@ $(document).ready(function() {
         "text": "Je pense , donc je suis"
       },
       "created_at": 1461113959088
+    },
+    {
+      "user": {
+        "name": "Natix",
+        "avatars": "https://i.imgur.com/nlhLi3I.png",
+        "handle": "@ArrozConPollo" },
+      "content": {
+        "text": "Tengo pie de papa"
+      },
+      "created_at": 1461113959088
     }
-  ]
+  ];
 
   /* function that renders tweets from DB, and appends to HTML index  */
   const renderTweets = function(tweetsDB) {
+    const $tweetsContainer = $("#tweets-container");
     let $styledTweet = '';
 
     for (const tweet of tweetsDB) {
       $styledTweet = createTweetElement(tweet);
-      $("#tweets-container").append($styledTweet)
+      $tweetsContainer.append($styledTweet);
     }
-  }
+  };
 
   /* function that creates new tweet elements in HTML markup */
   const createTweetElement = function({user, content, created_at}) {

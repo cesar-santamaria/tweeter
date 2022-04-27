@@ -23,18 +23,9 @@ $(document).ready(function() {
         "text": "Je pense , donc je suis"
       },
       "created_at": 1461113959088
-    },
-    {
-      "user": {
-        "name": "Natix",
-        "avatars": "https://i.imgur.com/nlhLi3I.png",
-        "handle": "@ArrozConPollo" },
-      "content": {
-        "text": "Tengo pie de papa"
-      },
-      "created_at": 1461113959088
     }
   ];
+
 
   /* function that renders tweets from DB, and appends to HTML index  */
   const renderTweets = function(tweetsDB) {
@@ -77,6 +68,10 @@ $(document).ready(function() {
   };
 
   renderTweets(tweetsDB);
+
+  $(".tweet-form").on("submit", (e)=>{
+    e.preventDefault()
+  })
  
 });
 

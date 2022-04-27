@@ -22,3 +22,7 @@
   align-items: center;
   font-family: var(--logo-font);
 }
+
+.over-count {
+  color: red;
+}

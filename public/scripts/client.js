@@ -1,5 +1,17 @@
 $(document).ready(function() {
 
+  $(".tweet-form").on("submit", function(event) {
+    event.preventDefault();
+
+    const data = $(this).serialize();
+
+    $.ajax({
+      type: "POST",
+      url: '/tweets/',
+      data: data,
+    });
+  });
+
   /* Mock Tweet Data */
   const tweetsDB = [
     {
@@ -69,9 +81,7 @@ $(document).ready(function() {
 
   renderTweets(tweetsDB);
 
-  $(".tweet-form").on("submit", (e)=>{
-    e.preventDefault()
-  })
+
  
 });
 

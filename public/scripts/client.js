@@ -1,20 +1,6 @@
 $(document).ready(function() {
-
-  $(".tweet-form").on("submit", function(event) {
-    event.preventDefault();
-
-    const data = $(this).serialize();
-
-    $.ajax({
-      type: "POST",
-      url: '/tweets/',
-      data: data,
-    });
-  });
-
   /* Mock Tweet Data */
   const tweetsDB = [];
-
 
   /* function that renders tweets from DB, and appends to HTML index  */
   const renderTweets = function(tweetsDB) {
@@ -30,7 +16,7 @@ $(document).ready(function() {
   /* function that creates new tweet elements in HTML markup */
   const createTweetElement = function({user, content, created_at}) {
     /* timeago library to format time */
-    const formatTime = timeago.format(created_at)
+    const formatTime = timeago.format(created_at);
 
     /* Selectors */
     const $article = $("<article>");
@@ -62,11 +48,27 @@ $(document).ready(function() {
 
   const fetchTweets = function() {
     $.ajax('/tweets', { method: 'GET' })
-    .then(function (data) {
-      console.log('Success: ', data);
-      renderTweets(data)
-    })
+      .then(function(data) {
+        console.log('Success: ', data);
+        renderTweets(data);
+      });
   };
-  fetchTweets()
+  fetchTweets();
+
+  $(".tweet-form").on("submit", function(event) {
+    event.preventDefault();
+
+    const $textarea = $("#tweet-text");
+    const characterCount = $textarea.val().length;
+    if ($textarea.val() === "" || $textarea.val() === null) return alert("Tweet can not be empty");
+    if (characterCount > 140) return alert("Tweet must be less than 140 characters");
+
+    const data = $(this).serialize();
+    $.ajax({
+      type: "POST",
+      url: '/tweets/',
+      data: data,
+    });
+  });
 });
 

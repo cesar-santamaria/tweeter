@@ -29,6 +29,9 @@ $(document).ready(function() {
 
   /* function that creates new tweet elements in HTML markup */
   const createTweetElement = function({user, content, created_at}) {
+    /* timeago library to format time */
+    const formatTime = timeago.format(created_at)
+
     /* Selectors */
     const $article = $("<article>");
     const $header = $("<header>");
@@ -39,7 +42,7 @@ $(document).ready(function() {
     const $userTweetDiv = $("<div>").addClass("user-tweet");
     const $userTweet = $("<p>").text(`${content.text}`);
     const $tweetFooter = $("<footer>");
-    const $timeOfTweet = $("<span>").text(`${created_at}`);
+    const $timeOfTweet = $("<span>").text(`${formatTime}`);
     const $socialIconDiv = $("<div>");
     const $bookmarkIcon = $("<i>").addClass("fas fa-bookmark");
     const $retweetIcon = $("<i>").addClass("fas fa-retweet");

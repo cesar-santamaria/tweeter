@@ -53,6 +53,7 @@ $(document).ready(function() {
         renderTweets(data);
       });
   };
+  
   fetchTweets();
 
   $(".tweet-form").on("submit", function(event) {
@@ -68,6 +69,9 @@ $(document).ready(function() {
       type: "POST",
       url: '/tweets/',
       data: data,
+    }).then(()=>{
+      console.log("Tweet added succesfully");
+      fetchTweets()
     });
   });
 });

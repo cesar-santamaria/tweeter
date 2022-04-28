@@ -56,6 +56,7 @@
     <main class="container">
       <section class="new-tweet">
         <h2>Compose Tweet</h2>
+        <p id="error-message" hidden>⚠️ cannot post an empty tweet or a tweet that exceed the character count limit of 140 ⚠️</p>
         <form class="tweet-form" action="/tweets/" method="post" >
           <textarea name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
           <div class="tweet-button-container">

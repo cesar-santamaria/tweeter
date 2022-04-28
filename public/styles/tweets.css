@@ -29,6 +29,7 @@
 
 #tweets-container header h3.name , p {
   font-weight: bold;
+  word-wrap: break-word;
 }
 
 #tweets-container header h3.user {

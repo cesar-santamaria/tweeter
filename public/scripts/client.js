@@ -49,6 +49,7 @@ $(document).ready(function() {
   const fetchTweets = function() {
     $.ajax('/tweets', { method: 'GET' })
       .then(function(data) {
+        $("#tweets-container").empty();
         console.log('Success: ', data);
         renderTweets(data);
       });
@@ -61,8 +62,16 @@ $(document).ready(function() {
 
     const $textarea = $("#tweet-text");
     const characterCount = $textarea.val().length;
-    if ($textarea.val() === "" || $textarea.val() === null) return alert("Tweet can not be empty");
-    if (characterCount > 140) return alert("Tweet must be less than 140 characters");
+    const $errorMessage = $("#error-message");
+    if ($textarea.val() === "" || $textarea.val() === null || characterCount > 140) {
+      $( "#error-message" ).slideDown( "slow", function() {
+        // Animation complete.
+        $errorMessage.removeAttr("hidden");
+      })
+      return 
+    }
+    
+    
 
     const data = $(this).serialize();
     $.ajax({
@@ -74,5 +83,16 @@ $(document).ready(function() {
       fetchTweets()
     });
   });
+
+  $(".tweet-form").on("input", function() {
+    $( "#error-message" ).slideUp( "slow", function() {
+      const $textarea = $("#tweet-text")
+      const characterCount = $textarea.val().length;
+      const $errorMessage = $("#error-message");
+      if (characterCount < 140) {
+        $errorMessage.attr("hidden",true)
+      }
+    })
+  })
 });
 

@@ -52,7 +52,7 @@
   padding-left: 1rem;
 }
 
-/* active states */
+/* Active States */
 
 #tweets-container article:hover {
   box-shadow: 12px 12px 2px 1px #d5d4d0;
@@ -71,7 +71,7 @@
   color: #b30000;
 } 
 
-/* Media Queries */
+/* Desktop Media Query */
 
 @media only screen and (min-width: 1024px) {
   #tweets-container {

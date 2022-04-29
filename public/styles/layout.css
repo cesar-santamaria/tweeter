@@ -1,20 +1,12 @@
-/* Used to check your box layout
- 
- *{
-   border: 5px dashed red;
- } 
- */
-
- html {
-  box-sizing: border-box;
-}
 *, *:before, *:after {
   box-sizing: inherit;
 }
 
-/*
- * Global layout stuff
- */
+html {
+  box-sizing: border-box;
+}
+
+/* Global layout and Variables */
 :root {
   /* Colors */
   --secondary-color: #4056A1;
@@ -49,6 +41,8 @@ body {
   font-weight: bold;
   text-align: center;
 }
+
+/* Desktop Media Query */
 
 @media only screen and (min-width: 1024px) {
   .content-wrapper {

@@ -1,9 +1,10 @@
 $(document).ready(function() {
+  /* Event listener to check textarea input and validation */
   $("#tweet-text").on("input", function() {
     const $textarea = $(this);
-    const characterCount = $textarea.val().length; // getting total amount of characters inputted.
-    const $tweetForm = $(this).parent(); // traversing up the DOM to parent element (form).
-    const outputCounter = $tweetForm.find(".counter"); //traversing down the DOM to child element (output).
+    const characterCount = $textarea.val().length; // getting total amount of characters entered.
+    const $tweetForm = $(this).parent(); // traversing up the DOM to parent element i.e. form.
+    const outputCounter = $tweetForm.find(".counter"); //traversing down the DOM to child element i.e. output.
     
     outputCounter.html(140 - characterCount); // change html to render updated character count.
           
@@ -15,5 +16,4 @@ $(document).ready(function() {
       outputCounter.removeClass('over-count');
     }
   });
-
 });

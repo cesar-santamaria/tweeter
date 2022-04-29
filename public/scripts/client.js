@@ -1,8 +1,6 @@
 $(document).ready(function() {
-  /* Mock Tweet Data */
-  const tweetsDB = [];
 
-  /* function that renders tweets from DB, and appends to HTML index  */
+  /* Render tweets and append to HTML */
   const renderTweets = function(tweetsDB) {
     const $tweetsContainer = $("#tweets-container");
     let $styledTweet = '';
@@ -13,7 +11,7 @@ $(document).ready(function() {
     }
   };
 
-  /* function that creates new tweet elements in HTML markup */
+  /* Creates new tweet into HTML elements */
   const createTweetElement = function({user, content, created_at}) {
     /* timeago library to format time */
     const formatTime = timeago.format(created_at);
@@ -44,8 +42,9 @@ $(document).ready(function() {
     
     return $article;
   };
-  renderTweets(tweetsDB);
+  renderTweets([]);
 
+  //Ajax Async GET request
   const fetchTweets = function() {
     $.ajax('/tweets', { method: 'GET' })
       .then(function(data) {
@@ -53,7 +52,6 @@ $(document).ready(function() {
         renderTweets(data);
       });
   };
-  
   fetchTweets();
 
   $(".tweet-form").on("submit", function(event) {
@@ -62,36 +60,36 @@ $(document).ready(function() {
     const $textarea = $("#tweet-text");
     const characterCount = $textarea.val().length;
     const $errorMessage = $("#error-message");
+
     if ($textarea.val() === "" || $textarea.val() === null || characterCount > 140) {
-      $( "#error-message" ).slideDown( "slow", function() {
-        // Animation complete.
+      // Animation for dynamic alert message
+      $("#error-message").slideDown("slow", function() {
         $errorMessage.removeAttr("hidden");
-      })
-      return 
+      });
+      return;
     }
     
-    
-
+    //Ajax Async POST request
     const data = $(this).serialize();
     $.ajax({
       type: "POST",
       url: '/tweets/',
       data: data,
     }).then(()=>{
-      console.log("Tweet added succesfully");
-      fetchTweets()
+      fetchTweets();
     });
   });
 
   $(".tweet-form").on("input", function() {
-    $( "#error-message" ).slideUp( "slow", function() {
-      const $textarea = $("#tweet-text")
+    // applying hidden to animation when validation erros are not found
+    $("#error-message").slideUp("slow", function() {
+      const $textarea = $("#tweet-text");
       const characterCount = $textarea.val().length;
       const $errorMessage = $("#error-message");
       if (characterCount < 140) {
-        $errorMessage.attr("hidden",true)
+        $errorMessage.attr("hidden",true);
       }
-    })
-  })
+    });
+  });
 });
 

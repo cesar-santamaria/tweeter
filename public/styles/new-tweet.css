@@ -23,7 +23,7 @@
   font-family: var(--logo-font);
 }
 
-/* Class for when character count has exceeded max */
+/* class added dynamically when character count exceeds 140 */
 .over-count {
   color: red;
 }

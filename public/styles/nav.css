@@ -25,9 +25,13 @@ nav {
   margin-bottom: 10px;
 }
 
+/* Font Awesome Icon */
+
 .fa-angles-down {
   color: red;
 }
+
+/* Desktop Media Query */
 
 @media only screen and (min-width: 1024px) {
   nav {

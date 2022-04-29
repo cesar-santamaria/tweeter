@@ -33,7 +33,6 @@
   </head>
 
   <body>
-    <!-- Top nav bar (fixed) -->
     <nav>
       <div class="logo-container">
         <span class="logo">tweeter</span>
@@ -43,31 +42,33 @@
         <i class="fa-solid fa-angles-down"></i>
       </div>
     </nav>
-  <header class="header-user">
-      <div>
-          <img src="/images/profile-hex.png"> 
-      </div>
-      <br>
-      <div>
-          <h2>Your Name</h2>
-      </div>
-  </header>
-    <!-- Page-specific (main) content here -->
-    <main class="container">
-      <section class="new-tweet">
-        <h2>Compose Tweet</h2>
-        <p id="error-message" hidden>⚠️ cannot post an empty tweet or a tweet that exceed the character count limit of 140 ⚠️</p>
-        <form class="tweet-form" action="/tweets/" method="post" >
-          <textarea name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
-          <div class="tweet-button-container">
-            <button class="tweet-btn" type="submit">Tweet</button>
-            <output name="counter" class="counter" for="tweet-text">140</output>
+    <div class="content-wrapper">
+      <div class="header-wrapper">
+        <header class="header-user">
+          <div>
+              <img src="/images/profile-hex.png"> 
           </div>
-        </form>
-      </section>
-      <section id="tweets-container">
-        <!-- Render Tweets -->
-      </section>
-    </main>
+          <div>
+              <h2>@NatiX_Oru</h2>
+          </div>
+        </header>
+      </div>
+      <!-- Page-specific (main) content here -->
+      <main class="container">
+        <section class="new-tweet">
+          <p id="error-message" hidden>⚠️ can't post an empty tweet or a tweet that exceeds character count of 140 ⚠️</p>
+          <form class="tweet-form" action="/tweets/" method="post" >
+            <textarea name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
+            <div class="tweet-button-container">
+              <button class="tweet-btn" type="submit">Tweet</button>
+              <output name="counter" class="counter" for="tweet-text">140</output>
+            </div>
+          </form>
+        </section>
+        <section id="tweets-container">
+          <!-- Render Tweets -->
+        </section>
+      </main>
+    </div>
   </body>
 </html>

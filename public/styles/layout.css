@@ -19,6 +19,7 @@
   /* Colors */
   --secondary-color: #4056A1;
   --primary-color: #f4f1ec;
+  --highlight-color: rgb(213, 162, 67);
   --accent-color: #545149;
   --font-color: #FFFFFF;
 
@@ -35,10 +36,6 @@ body {
   font-family: var(--primary-font);
 }
 
-/*
- * Additional CSS can be defined below or in other CSS files, as per instructions
- */
-
  main {
   display: flex;
   flex-direction: column;
@@ -48,5 +45,13 @@ body {
 #error-message {
   border: 2px solid red;
   padding: 1rem;
+  font-size: 1em;
+  font-weight: bold;
   text-align: center;
+}
+
+@media only screen and (min-width: 1024px) {
+  .content-wrapper {
+    display: flex;
+  }
 }

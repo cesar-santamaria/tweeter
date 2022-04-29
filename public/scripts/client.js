@@ -22,7 +22,7 @@ $(document).ready(function() {
     const $article = $("<article>");
     const $header = $("<header>");
     const $userInfo = $("<div>").addClass("user-info");
-    const $userIcon = $("<i>").addClass("fa-solid fa-meteor");
+    const $userAvatar = $("<img>").attr("src",`${user.avatars}`);
     const $username = $("<h3>").addClass("name").text(`${user.name}`);
     const $userHandle = $("<h3>").addClass("user").text(`${user.handle}`);
     const $userTweetDiv = $("<div>").addClass("user-tweet");
@@ -37,7 +37,7 @@ $(document).ready(function() {
     /* Apending HTML elements to form new tweet structure. */
     $article.append($header, $userTweetDiv, $tweetFooter);
     $header.append($userInfo, $userHandle);
-    $userInfo.append($userIcon, $username);
+    $userInfo.append($userAvatar, $username);
     $userTweetDiv.append($userTweet);
     $tweetFooter.append($timeOfTweet, $socialIconDiv);
     $socialIconDiv.append($bookmarkIcon, $retweetIcon, $heartIcon);
@@ -50,7 +50,6 @@ $(document).ready(function() {
     $.ajax('/tweets', { method: 'GET' })
       .then(function(data) {
         $("#tweets-container").empty();
-        console.log('Success: ', data);
         renderTweets(data);
       });
   };

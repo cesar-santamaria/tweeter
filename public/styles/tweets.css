@@ -1,6 +1,5 @@
-#tweets-container {
-  margin: 5rem 0;
-  padding: 1rem;
+.container {
+  margin-top: 5rem;
 }
 
 #tweets-container article {
@@ -22,13 +21,13 @@
   align-items: center;
 }
 
-#tweets-container .user-info i {
+#tweets-container .user-info img {
   font-size: 60px;
-  margin-right: 1.5rem;
+  margin-right: 1rem;
 }
 
 #tweets-container header h3.name , p {
-  font-weight: bold;
+  font-weight: 300;
   word-wrap: break-word;
 }
 
@@ -53,7 +52,7 @@
   padding-left: 1rem;
 }
 
-/* Element active states */
+/* active states */
 
 #tweets-container article:hover {
   box-shadow: 12px 12px 2px 1px #d5d4d0;
@@ -71,3 +70,16 @@
 .fas.fa-heart:hover {
   color: #b30000;
 } 
+
+/* Media Queries */
+
+@media only screen and (min-width: 1024px) {
+  #tweets-container {
+    margin-top: 0;
+  }
+
+  .container {
+    width: 50vw;
+    margin-top: 11rem;
+  }
+}

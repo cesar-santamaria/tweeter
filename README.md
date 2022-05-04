@@ -4,7 +4,7 @@ Tweeter is a simple, single-page Twitter clone. Built with HTML, CSS, JS, jQuery
 ## Final Product
 
 !["Tweeter Desktop"](./public/images/tweeter-1.png)
-!["Tweeter Tablet"](./public/images/tweeter-2.png)
+!["Tweeter Tablet"](./public/images/tweeter-2.png) Displays validation errors within app
 
 ## Dependencies
 - Body Parser

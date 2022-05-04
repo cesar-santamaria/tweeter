@@ -24,8 +24,13 @@
   font-family: var(--logo-font);
 }
 
+/* Active states */
+.new-tweet button:hover {
+  box-shadow: 4px 4px 2px 1px #d5d4d0;
+  background-color: #465fb1;
+}
+
 /* class added dynamically when character count exceeds 140 */
 .over-count {
   color: red;
 }
-

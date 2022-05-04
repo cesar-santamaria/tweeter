@@ -2,6 +2,7 @@ $(document).ready(function() {
 
   /* Render tweets and append to HTML */
   const renderTweets = function(tweetsDB) {
+    tweetsDB.sort((a, b) => b.created_at - a.created_at); // sort tweets by created_at
     const $tweetsContainer = $("#tweets-container");
     let $styledTweet = '';
 
@@ -57,17 +58,18 @@ $(document).ready(function() {
   $(".tweet-form").on("submit", function(event) {
     event.preventDefault();
 
-    const $textarea = $("#tweet-text");
-    const characterCount = $textarea.val().length;
+    let $textarea = $("#tweet-text").val();
+    const characterCount = $textarea.length;
     const $errorMessage = $("#error-message");
 
-    if ($textarea.val() === "" || $textarea.val() === null || characterCount > 140) {
+    if ($textarea === "" || $textarea === null || characterCount > 140) {
       // Animation for dynamic alert message
       $("#error-message").slideDown("slow", function() {
         $errorMessage.removeAttr("hidden");
       });
       return;
     }
+    
     
     //Ajax Async POST request
     const data = $(this).serialize();
@@ -78,6 +80,9 @@ $(document).ready(function() {
     }).then(()=>{
       fetchTweets();
     });
+    
+    $(this).trigger("reset");
+    $(".counter").html(140);
   });
 
   $(".tweet-form").on("input", function() {
